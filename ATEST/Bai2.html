@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+
+        function CountString(str) {
+        let str1 = str.toLowerCase();
+        let check = true;
+        let count =0;
+            for (let i = 0; i <str.length ; i++) {
+                if(str1[i]!==str[i]){
+                    check = false;
+                    count++;
+                }
+            }
+            if(!check){
+                document.write("Số ký tự in hoa có trong chuỗi là: " + count);
+            }else{
+                document.write("The String is not contain upper char");
+            }
+        }
+        let string;
+        do{
+            string = prompt("Nhập chuỗi vào đây: ");
+            if (isNaN(string)) {
+                alert("Chuỗi bạn vừa nhập: " + string);
+                break;
+            }else{
+                alert("Mời bạn nhập lại chuỗi: ");
+            }
+        }while (true);
+        CountString(string);
+    </script>
+</body>
+</html>

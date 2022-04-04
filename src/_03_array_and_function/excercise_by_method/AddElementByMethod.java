@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class AddElementByMethod {
     public static void main(String[] args) {
         int [] arr = {1,4,6,7,8,9,11,16,0,0,0};
-        System.out.println(Arrays.toString(Add(arr)));;
+        System.out.println(Arrays.toString(addElement(arr)));;
     }
-    public static int[] Add(int[] array) {
+    public static int[] addElement(int[] array) {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the element which need to be added");
         int x = input.nextInt();

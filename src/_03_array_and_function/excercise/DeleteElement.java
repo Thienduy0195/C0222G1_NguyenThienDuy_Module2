@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class DeleteElement {
     public static void main(String[] args) {
-        int [] array = {1,4,6,7,8,9,11,16,0,0};
+        int [] array = {1,4,6,7,8,6,9,6,11,16};
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter x");
         int x = input.nextInt();
@@ -24,13 +24,18 @@ public class DeleteElement {
             System.out.println(Arrays.toString(array) + " is not includes " + x);
         }
         int a, i;
+        int count =0;
         for (a=i=0; i <array.length;i++){
             if(array[i]!=x){
                 array[a] = array[i];
                 a++;
+            } else {
+                count++;
             }
         }
-        array[array.length-1] = 0;
+        for (int j = 0; j <count ; j++) {
+            array[array.length-(j+1)] = 0;
+        }
         System.out.println("The new array after deleted " + x + " is: " + Arrays.toString(array));
     }
 }

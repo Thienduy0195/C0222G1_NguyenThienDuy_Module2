@@ -9,7 +9,7 @@ public class WatchMain {
             array[i]= Math.random()*1000000;
         }
 //        System.out.println(Math.random()*100000);
-        for (int j = 0; j <999999 ; j++) {
+        for (int j = 0; j < array.length-1 ; j++) {
             if(array[j]>array[j+1]){
                 double temp = array[j];
                 array[j] = array[j+1];

@@ -1,6 +1,9 @@
 package _04_class_and_object.excercise.fan_excercise;
 
 public class FanClass {
+        private static final int SLOW = 1;
+        private static final int MEDIUM = 2;
+        private static final int FAST = 3;
         private int speed;
         private boolean on;
         private double radius;
@@ -52,13 +55,13 @@ public class FanClass {
             String str ="";
             if (isOn()){
                 switch (getSpeed()){
-                    case 1:
+                    case SLOW:
                         str = "slow";
                         break;
-                    case 2:
+                    case MEDIUM:
                         str = "normal";
                         break;
-                    case 3:
+                    case FAST:
                         str = "fast";
                         break;
                     default:

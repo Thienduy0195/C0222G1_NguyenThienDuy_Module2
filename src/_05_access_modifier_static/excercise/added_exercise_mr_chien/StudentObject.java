@@ -52,7 +52,6 @@ public class StudentObject {
                 break;
             }
         }
-        System.out.println(num);
         students[num] = new Student(name, age, address, point);
         System.out.println("Successfully adding!!");
         displayStudent();

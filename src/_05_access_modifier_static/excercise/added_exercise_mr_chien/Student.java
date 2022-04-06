@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Student {
     Scanner input = new Scanner(System.in);
-    static int size = 10;
     private String name;
     private int age;
     private String address;

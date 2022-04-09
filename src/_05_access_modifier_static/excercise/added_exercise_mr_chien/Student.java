@@ -1,19 +1,15 @@
 package _05_access_modifier_static.excercise.added_exercise_mr_chien;
 
-import java.util.Scanner;
 
-public class Student {
-    Scanner input = new Scanner(System.in);
-    private String name;
-    private int age;
+public class Student extends Person {
     private String address;
-    private int point;
-    public Student(){
+    private int point = 0;
 
+    public Student() {
     }
-    public Student(String name, int age, String address, int point){
-        this.name = name;
-        this.age = age;
+
+    public Student(String name, int age, boolean gender, String address, int point) {
+        super(name, age, gender);
         this.address = address;
         this.point = point;
     }
@@ -21,7 +17,7 @@ public class Student {
     @Override
     public String toString() {
         String str = "";
-        return "Name: " + name + ", Age: " + age + ", Address: " + address + ", Point: " + point;
+        return "[" + super.toString() + ", " + address + ", Point: " + point +  "]";
     }
 
 }

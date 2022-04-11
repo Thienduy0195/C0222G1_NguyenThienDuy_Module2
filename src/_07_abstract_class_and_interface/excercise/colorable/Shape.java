@@ -3,7 +3,7 @@ package _07_abstract_class_and_interface.excercise.colorable;
 public abstract class Shape {
     private String color = "green";
     private boolean filled = true;
-
+    public abstract double getArea();
     public Shape() {
     }
     public Shape(String color, boolean filled) {

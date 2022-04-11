@@ -3,6 +3,12 @@ package _07_abstract_class_and_interface.excercise.colorable;
 public class Circle extends Shape {
 
     private double radius = 1.0;
+
+    @Override
+    public double getArea() {
+        return radius * radius * Math.PI;
+    }
+
     public Circle() {
 
     }

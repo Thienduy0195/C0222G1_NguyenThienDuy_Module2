@@ -4,6 +4,11 @@ public class Rectangle extends Shape {
     private double width= 1.0;
     private double length= 1.0;
 
+    @Override
+    public double getArea() {
+        return width * length;
+    }
+
     public Rectangle() {
     }
 
@@ -33,6 +38,7 @@ public class Rectangle extends Shape {
     public void setLength(double length) {
         this.length = length;
     }
+
     @Override
     public String toString() {
         return "A Rectangle with width= " + width + " and length= " + length + ", which is a subclass of " + super.toString();

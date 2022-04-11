@@ -2,6 +2,12 @@ package _07_abstract_class_and_interface.excercise.colorable;
 
 public class Square extends Shape implements Colorable {
     private double size;
+
+    @Override
+    public double getArea() {
+        return size * size;
+    }
+
     public Square() {
     }
 
@@ -19,7 +25,7 @@ public class Square extends Shape implements Colorable {
 
     @Override
     public String toString() {
-        return "A Square with side=" + size + ", which is a subclass of ";
+        return "A Square with side=" + size + ", which is a subclass of " + super.toString();
     }
 
 

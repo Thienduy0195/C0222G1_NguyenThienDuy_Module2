@@ -14,8 +14,9 @@ public class ColorableTest {
         shapes[6]=new Rectangle(1.0,2.0);
 
         for (int i = 0; i < size ; i++) {
+            System.out.println("Shape " + i + " - Area: " + shapes[i].getArea());
             if(shapes[i] instanceof Square){
-                System.out.println("Shape at index " + i + " is a Colorable:");
+                System.out.print("Shape " + i + " is a Colorable:");
                 ((Square) shapes[i]).howToColor();
             }
         }

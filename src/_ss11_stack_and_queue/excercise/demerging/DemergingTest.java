@@ -5,8 +5,8 @@ import java.util.*;
 
 public class DemergingTest {
     public static void main(String[] args) {
-        Queue<Employee> Male = new LinkedList<>();
-        Queue<Employee> Female = new LinkedList<>();
+        Queue<Employee> male = new LinkedList<>();
+        Queue<Employee> female = new LinkedList<>();
 
         Employee[] employeeArr = new Employee[8];
         employeeArr[0] = new Employee("Jack", true, 18);
@@ -27,18 +27,18 @@ public class DemergingTest {
 
         for (Employee item : employeeArr) {
             if (item.isGender()){
-                Male.add(item);
+                male.add(item);
             } else {
-                Female.add(item);
+                female.add(item);
             }
         }
 
         List<Employee> newList = new ArrayList<>();
-        while (Female.size() > 0){
-            newList.add(Female.remove());
+        while (female.size() > 0){
+            newList.add(female.remove());
         }
-        while (Male.size() > 0){
-            newList.add(Male.remove());
+        while (male.size() > 0){
+            newList.add(male.remove());
         }
         System.out.println();
         System.out.println("List of employee after sorting: ");

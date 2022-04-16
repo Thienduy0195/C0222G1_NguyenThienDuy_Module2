@@ -1,7 +1,7 @@
 package _ss12_java_collection_framework.excercise.arraylist_linkedlist_in_java_collection.arraylist;
 
 
-public class Product<Product> {
+public class Product {
     private String name;
     private String id;
     private double price;

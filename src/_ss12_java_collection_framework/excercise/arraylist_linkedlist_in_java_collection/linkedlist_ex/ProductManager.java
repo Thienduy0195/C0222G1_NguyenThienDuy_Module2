@@ -88,7 +88,7 @@ public class ProductManager {
         String name = input.nextLine().toUpperCase();
         boolean check = false;
         for (Product item : linkedList) {
-            if (item.getName().toUpperCase().equals(name)) {
+            if (item.getName().toUpperCase().contains(name)) {
                 System.out.println("THE PRODUCT WHICH WAS SEARCHED:");
                 System.out.println(item.toString());
                 check = true;

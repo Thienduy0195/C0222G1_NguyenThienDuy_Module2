@@ -24,3 +24,12 @@ public class AscendingString {
         System.out.println();
     }
 }
+/*********************************************************************************
+ * 	Tính toán độ phức tạp của bài toán:
+ *  1 câu lệnh = 1
+ * 	1 vòng lặp thêm ký tự vào list = n;
+ * 	1 vòng lặp hiển thị phần tử trong list = n;
+ *  T(n) = (1 + n + n);
+ *  T(n) = O(n)
+ * 	=> Độ phức tạp bài toán này là O(n)
+ *********************************************************************************/

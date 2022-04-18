@@ -7,6 +7,7 @@ public class ProductManager {
     public static Scanner input = new Scanner(System.in);
     public static ArrayList <Product> arrList = new ArrayList<>();
 
+
     static {
         arrList.add(new Product("SamSung", "SS", 5000)) ;
         arrList.add(new Product("LG", "LG", 4000)) ;

@@ -18,15 +18,15 @@ public class DescribeInsertionSort {
     public static void insertionSort(int[] array) {
         System.out.println("Khai báo 2 biến x và pos để (x) nhận giá trị cần xét còn pos nhận vị trí để chèn x");
         int x, pos;
-        for (int i = 1; i < array.length; i++) { //đoạn array[0] đã sắp xếp
+        for (int i = 1; i < array.length; i++) {
             System.out.println("Gán x = array[" + i + "] (x = " + array[i] + ")");
-            x = array[i]; // gán x chạy từ array[1]
+            x = array[i];
             System.out.println("Gán pos = i (pos = " + i + ")");
-            pos = i; // gán pos chạy từ 1
+            pos = i;
             while (pos > 0 && x < array[pos - 1]) {
                 System.out.println("Vì " + x + " nhỏ hơn " + array[pos - 1] + " nên hoán đổi vị trí giữa " + x + " và " + array[pos - 1]);
                 System.out.println(" >> chèn " + array[pos - 1] + " vào vị trí của " + x + " (vị trí " + (pos) + ")");
-                array[pos] = array[pos - 1]; // đổi chỗ
+                array[pos] = array[pos - 1];
                 pos--;
                 System.out.println(" >> chèn " + x + " vào vị trí của " + array[pos] + " lúc nảy, (vị trí " + pos + ")");
                 array[pos] = x;

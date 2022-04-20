@@ -1,4 +1,4 @@
-package _ss15_exception_and_debug.excercise.arra;
+package _ss15_exception_and_debug.excercise.triangle;
 
 import java.util.Scanner;
 

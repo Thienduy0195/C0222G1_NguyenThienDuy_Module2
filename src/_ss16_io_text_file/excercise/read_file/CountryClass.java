@@ -6,7 +6,6 @@ public class CountryClass {
     private String name;
 
 
-
     public CountryClass(int id, String code, String name) {
         this.id = id;
         this.code = code;

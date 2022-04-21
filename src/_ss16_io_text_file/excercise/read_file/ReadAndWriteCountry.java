@@ -6,14 +6,14 @@ import java.util.List;
 
 public class ReadAndWriteCountry {
 
-    public static List<String []> readFile(String path){
+    public static List<String[]> readFile(String path) {
         File file = new File(path);
-        List<String []> countryList = new ArrayList<>();
-        try{
+        List<String[]> countryList = new ArrayList<>();
+        try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             String line = "";
-            while ((line = bufferedReader.readLine())!=null){
-                String [] countryArray = line.split(",");
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] countryArray = line.split(",");
                 countryList.add(countryArray);
             }
         } catch (IOException e) {
@@ -21,5 +21,4 @@ public class ReadAndWriteCountry {
         }
         return countryList;
     }
-
 }

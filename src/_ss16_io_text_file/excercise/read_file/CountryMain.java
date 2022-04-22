@@ -13,8 +13,7 @@ public class CountryMain {
     public static void display() {
         List<String[]> strList = ReadAndWriteCountry.readFile("src/_ss16_io_text_file/excercise/read_file/Country");
         for (String[] item : strList) {
-            CountryClass countryClass = new CountryClass(Integer.parseInt(item[0]), item[1], item[2]);
-            list.add(countryClass);
+            list.add(new CountryClass(Integer.parseInt(item[0]), item[1], item[2]));
         }
         for (CountryClass item : list) {
             System.out.println(item.toString());

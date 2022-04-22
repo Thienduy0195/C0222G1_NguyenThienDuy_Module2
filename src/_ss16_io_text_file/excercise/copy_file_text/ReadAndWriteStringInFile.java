@@ -5,23 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteStringInFile {
-    public List<String> readFile(String path) {
+    public List<String> readFile(String path) throws IOException {
         List<String> stringList = new ArrayList<>();
         int count = 0;
+        BufferedReader br = null;
         try {
             File file = new File(path);
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-            BufferedReader br = new BufferedReader(new FileReader(file));
+            br = new BufferedReader(new FileReader(file));
             String line = "";
             while ((line = br.readLine()) != null) {
                 count += line.length();
                 stringList.add(line);
             }
-            br.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("File not found, please creating new file.");
+        }finally {
+            if(br != null){
+                br.close();
+            }
         }
         System.out.println("The numbers of character in file is: " + count);
         return stringList;
@@ -34,7 +38,7 @@ public class ReadAndWriteStringInFile {
             bw.newLine();
             bw.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("The copy file is not found!, please create copy file!");
         }
     }
 }

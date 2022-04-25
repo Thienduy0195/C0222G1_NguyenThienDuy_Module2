@@ -1,4 +1,4 @@
-package _ss17_io_binary_file_and_serialization.excercise;
+package _ss17_io_binary_file_and_serialization.excercise.ss17_models;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package _ss17_io_binary_file_and_serialization.excercise;
+package _ss17_io_binary_file_and_serialization.excercise.ss17_models;
 
 
 import java.io.Serializable;
@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 public class ProductManager implements Serializable {
     static Scanner input = new Scanner(System.in);
+
+    static final String BINARY_PATH = "src/_ss17_io_binary_file_and_serialization/excercise/ss17_view/obj.csv";
+    static final String CHARACTER_PATH = "src/_ss17_io_binary_file_and_serialization/excercise/ss17_view/products.csv";
 
     static List<Products> productsList = new LinkedList<>();
 
@@ -26,11 +29,10 @@ public class ProductManager implements Serializable {
         for (Products item : productsList) {
             System.out.println(item);
         }
-        writeObj();
-        write();
     }
 
     public static void addNew() {
+        readObject();
         System.out.println("Enter the ID of new product: ");
         String id = input.nextLine().toUpperCase();
         System.out.println("Enter the name of new product: ");
@@ -44,10 +46,10 @@ public class ProductManager implements Serializable {
         productsList.add(new Products(id, name, firm, price, describe));
         System.out.println("*******Succeed adding a new product!*******");
         writeObj();
-        write();//viết sản phẩm mới vào file product dạng character để xem
     }
 
     public static void searchProduct() {
+        readObject();
         System.out.println("Please enter the name of the product you're searching: ");
         String productName = input.nextLine();
         boolean check = false;
@@ -65,17 +67,18 @@ public class ProductManager implements Serializable {
     }
 
     public static void readObject() {
-        productsList = (List<Products>) ReadAndWriteProduct.readFileBinary("src/_ss17_io_binary_file_and_serialization/excercise/obj.csv");
+        productsList = (List<Products>) ReadAndWriteProduct.readFileBinary(BINARY_PATH);
     }
 
     public static void writeObj() {
-        ReadAndWriteProduct.writeFileBinary("src/_ss17_io_binary_file_and_serialization/excercise/obj.csv", productsList);
+        ReadAndWriteProduct.writeFileBinary(BINARY_PATH, productsList);
+        write();
     }
 
 
-    //viết thông tin sản phẩm vào 1 file mà dev có thể đọc được
+//    viết thông tin sản phẩm vào 1 file mà dev có thể đọc được
     public static void write() {
-        ReadAndWriteProduct.writeFile("src/_ss17_io_binary_file_and_serialization/excercise/products.csv", productsList);
+        ReadAndWriteProduct.writeFile(CHARACTER_PATH, productsList);
     }
 
     private static double inputPrice() {

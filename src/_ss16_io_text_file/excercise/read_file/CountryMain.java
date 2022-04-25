@@ -11,7 +11,7 @@ public class CountryMain {
     }
 
     public static void display() {
-        List<String[]> strList = ReadAndWriteCountry.readFile("src/_ss16_io_text_file/excercise/read_file/Country");
+        List<String[]> strList = ReadAndWriteCountry.readFile("src/_ss16_io_text_file/excercise/read_file/Country.csv");
         for (String[] item : strList) {
             list.add(new CountryClass(Integer.parseInt(item[0]), item[1], item[2]));
         }

@@ -1,18 +1,30 @@
 package _super_case_study.models.facility;
 
 public abstract class Facility {
+    public String id;
     public String serviceName;
     public double usingArea;
     public double rentCost;
     public double maximumMember;
     public String typeOfUsing;
 
-    public Facility(String serviceName, double usingArea, double rentCost, double maximumMember, String typeOfUsing) {
+    public Facility(String id, String serviceName,
+                    double usingArea, double rentCost,
+                    double maximumMember, String typeOfUsing) {
+        this.id = id;
         this.serviceName = serviceName;
         this.usingArea = usingArea;
         this.rentCost = rentCost;
         this.maximumMember = maximumMember;
         this.typeOfUsing = typeOfUsing;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getServiceName() {

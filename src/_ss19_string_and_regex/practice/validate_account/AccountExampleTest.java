@@ -1,4 +1,4 @@
-package _ss18_string_and_regex.practice.validate_account;
+package _ss19_string_and_regex.practice.validate_account;
 
 public class AccountExampleTest {
 

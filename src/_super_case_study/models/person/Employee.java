@@ -10,7 +10,7 @@ public class Employee extends Person {
                     String dateOfBirth,
                     boolean gender,
                     double identityCard,
-                    double phoneNumber,
+                    String phoneNumber,
                     String email,
                     String level,
                     String position,

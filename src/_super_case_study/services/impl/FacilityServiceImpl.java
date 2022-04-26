@@ -1,11 +1,12 @@
-package _super_case_study.services.facility;
+package _super_case_study.services.impl;
 
 import _super_case_study.models.facility.Facility;
 import _super_case_study.models.facility.House;
 import _super_case_study.models.facility.Room;
 import _super_case_study.models.facility.Villa;
+import _super_case_study.services.FacilityService;
+import _super_case_study.services.utils.RegexData;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,7 +19,8 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void display() {
         for (Map.Entry<Facility, Integer> item: facilityIntegerMap.entrySet()) {
-            System.out.println("SERVICES: " + item.getKey() + " , The number of times rented: " + item.getValue());
+            System.out.println("SERVICES: " + item.getKey());
+            System.out.println("THE NUMBER OF TIMES RENTED: " + item.getValue());
         }
 
     }
@@ -41,7 +43,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Enter the villa's rent cost: ");
         double rentCost = Double.parseDouble(input.nextLine());
         System.out.println("Enter the maximum of person in the villa: ");
-        double maximumMember = Double.parseDouble(input.nextLine());
+        int maximumMember = Integer.parseInt(input.nextLine());
         System.out.println("Enter the villa type: ");
         String typeOfUsing = input.nextLine();
         System.out.println("Enter the standard of room in the villa: ");
@@ -65,7 +67,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Enter the house's rent cost: ");
         double rentCost = Double.parseDouble(input.nextLine());
         System.out.println("Enter the maximum of person in the house: ");
-        double maximumMember = Double.parseDouble(input.nextLine());
+        int maximumMember = Integer.parseInt(input.nextLine());
         System.out.println("Enter the house type: ");
         String typeOfUsing = input.nextLine();
         System.out.println("Enter the standard of room in the house: ");
@@ -87,7 +89,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Enter the room's rent cost: ");
         double rentCost = Double.parseDouble(input.nextLine());
         System.out.println("Enter the maximum of person in the room: ");
-        double maximumMember = Double.parseDouble(input.nextLine());
+        int maximumMember = Integer.parseInt(input.nextLine());
         System.out.println("Enter the room type: ");
         String typeOfUsing = input.nextLine();
         System.out.println("Enter the free services in the room: ");

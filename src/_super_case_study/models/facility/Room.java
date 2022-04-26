@@ -7,7 +7,7 @@ public class Room extends Facility {
                 String serviceName,
                 double usingArea,
                 double rentCost,
-                double maximumMember,
+                int maximumMember,
                 String typeOfUsing,
                 String freeService) {
         super(id, serviceName, usingArea, rentCost, maximumMember, typeOfUsing);
@@ -32,6 +32,6 @@ public class Room extends Facility {
                 ", RENT COST=" + rentCost +
                 ", MAXIMUM CAPACITY =" + maximumMember +
                 ", TYPE='" + typeOfUsing + '\'' +
-                ", FREE SERVICE='" + freeService + super.toString();
+                ", FREE SERVICE='" + freeService;
     }
 }

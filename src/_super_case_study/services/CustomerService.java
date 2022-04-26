@@ -1,4 +1,4 @@
-package _super_case_study.services.customer;
+package _super_case_study.services;
 
 import _super_case_study.services.Service;
 

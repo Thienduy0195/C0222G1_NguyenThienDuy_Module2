@@ -1,6 +1,7 @@
-package _super_case_study.services.customer;
+package _super_case_study.services.impl;
 
 import _super_case_study.models.person.Customer;
+import _super_case_study.services.CustomerService;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -43,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Enter the identity card of the customer: ");
         double identityCard = Double.parseDouble(input.nextLine());
         System.out.println("Enter the phone number of the customer: ");
-        double phoneNumber = Double.parseDouble(input.nextLine());
+        String phoneNumber = input.nextLine();
         System.out.println("Enter the email of the customer: ");
         String email = input.nextLine();
         System.out.println("Enter the type of the customer: ");
@@ -81,7 +82,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Enter the identity card of the customer: ");
                 item.setIdentityCard(Double.parseDouble(input.nextLine()));
                 System.out.println("Enter the phone number of the customer: ");
-                item.setPhoneNumber(Double.parseDouble(input.nextLine()));
+                item.setPhoneNumber(input.nextLine());
                 System.out.println("Enter the email of the customer: ");
                 item.setEmail(input.nextLine());
                 System.out.println("Enter the type of the customer: ");

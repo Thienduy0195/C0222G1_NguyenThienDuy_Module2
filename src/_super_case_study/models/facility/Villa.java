@@ -9,7 +9,7 @@ public class Villa extends Facility {
                  String serviceName,
                  double usingArea,
                  double rentCost,
-                 double maximumMember,
+                 int maximumMember,
                  String typeOfUsing,
                  String standardOfRoom,
                  double poolArea,
@@ -55,6 +55,6 @@ public class Villa extends Facility {
                 ", TYPE='" + typeOfUsing + '\'' +
                 ", STANDARD OF ROOM='" + standardOfRoom + '\'' +
                 ", POOL AREA=" + poolArea +
-                ", NUMBER OF FLOOR=" + numOfFloor + super.toString();
+                ", NUMBER OF FLOOR=" + numOfFloor;
     }
 }

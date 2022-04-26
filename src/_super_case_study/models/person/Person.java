@@ -6,12 +6,12 @@ public abstract class Person {
     public String dateOfBirth;
     public boolean gender;
     public double identityCard;
-    public double phoneNumber;
+    public String phoneNumber;
     public String email;
 
     public Person(String id, String name,
                   String dateOfBirth, boolean gender,
-                  double identityCard, double phoneNumber,
+                  double identityCard, String phoneNumber,
                   String email) {
         this.id = id;
         this.name = name;
@@ -62,11 +62,11 @@ public abstract class Person {
         this.identityCard = identityCard;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

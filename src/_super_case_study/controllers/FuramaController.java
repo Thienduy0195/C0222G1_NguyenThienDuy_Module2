@@ -1,8 +1,8 @@
 package _super_case_study.controllers;
 
-import _super_case_study.services.customer.CustomerServiceImpl;
-import _super_case_study.services.employee.EmployeeServiceImpl;
-import _super_case_study.services.facility.FacilityServiceImpl;
+import _super_case_study.services.impl.CustomerServiceImpl;
+import _super_case_study.services.impl.EmployeeServiceImpl;
+import _super_case_study.services.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -16,6 +16,7 @@ public class FuramaController {
     public static void displayMainMenu() {
 
         while (true) {
+            System.out.println("------FURAMA MANAGEMENT MENU------");
             System.out.println("1. Employee Management " +
                     "\n2. Customer Management " +
                     "\n3. Facility Management  " +
@@ -67,6 +68,8 @@ public class FuramaController {
                 case 4:
                     check = false;
                     break;
+                default:
+                    System.out.println("You have enter a wrong choice, please enter choice again!");
             }
         }
     }
@@ -92,6 +95,8 @@ public class FuramaController {
                 case 4:
                     check = false;
                     break;
+                default:
+                    System.out.println("You have enter a wrong choice, please enter choice again!");
             }
         }
     }
@@ -115,6 +120,8 @@ public class FuramaController {
                 case 4:
                     check= false;
                     break;
+                default:
+                    System.out.println("You have enter a wrong choice, please enter choice again!");
             }
         }
     }
@@ -139,6 +146,8 @@ public class FuramaController {
                     facilityService.addNewRoom();
                     facilityManagement();
                     break;
+                default:
+                    System.out.println("You have enter a wrong choice, please enter choice again!");
             }
         }
     }
@@ -161,6 +170,8 @@ public class FuramaController {
                 case 6:
                     check = false;
                     break;
+                default:
+                    System.out.println("You have enter a wrong choice, please enter choice again!");
             }
         }
     }
@@ -177,6 +188,8 @@ public class FuramaController {
                 case 3:
                     check = false;
                     break;
+                default:
+                    System.out.println("You have enter a wrong choice, please enter choice again!");
             }
         }
     }

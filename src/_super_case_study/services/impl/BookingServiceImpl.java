@@ -1,6 +1,8 @@
-package _super_case_study.services.contact;
+package _super_case_study.services.impl;
 
-public class ContactServiceImpl implements ContactService {
+import _super_case_study.services.BookingService;
+
+public class BookingServiceImpl implements BookingService {
     @Override
     public void display() {
 

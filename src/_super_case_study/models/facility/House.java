@@ -8,7 +8,7 @@ public class House extends Facility {
                  String serviceName,
                 double usingArea,
                 double rentCost,
-                double maximumMember,
+                 int maximumMember,
                 String typeOfUsing,
                 String standardOfRoom,
                 int numOfFloor) {
@@ -44,7 +44,7 @@ public class House extends Facility {
                 ", MAXIMUM CAPACITY =" + maximumMember +
                 ", TYPE='" + typeOfUsing + '\'' +
                 ", STANDARD OF ROOM='" + standardOfRoom + '\'' +
-                ", NUMBER OF FLOORS=" + numOfFloor + super.toString();
+                ", NUMBER OF FLOORS=" + numOfFloor;
     }
 
 }

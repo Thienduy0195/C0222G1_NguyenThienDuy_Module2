@@ -1,6 +1,7 @@
-package _super_case_study.services.employee;
+package _super_case_study.services.impl;
 
 import _super_case_study.models.person.Employee;
+import _super_case_study.services.EmployeeService;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Enter the identity card of the employee: ");
         double identityCard = Double.parseDouble(input.nextLine());
         System.out.println("Enter the phone number of the employee: ");
-        double phoneNumber = Double.parseDouble(input.nextLine());
+        String phoneNumber = input.nextLine();
         System.out.println("Enter the email of the employee: ");
         String email = input.nextLine();
         System.out.println("Enter the level of the employee: ");
@@ -80,7 +81,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.println("Enter the identity card of the employee: ");
                 item.setIdentityCard(Double.parseDouble(input.nextLine()));
                 System.out.println("Enter the phone number of the employee: ");
-                item.setPhoneNumber(Double.parseDouble(input.nextLine()));
+                item.setPhoneNumber(input.nextLine());
                 System.out.println("Enter the email of the employee: ");
                 item.setEmail(input.nextLine());
                 System.out.println("Enter the level of the employee: ");

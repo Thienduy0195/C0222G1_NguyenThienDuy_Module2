@@ -5,12 +5,12 @@ public abstract class Facility {
     public String serviceName;
     public double usingArea;
     public double rentCost;
-    public double maximumMember;
+    public int maximumMember;
     public String typeOfUsing;
 
     public Facility(String id, String serviceName,
                     double usingArea, double rentCost,
-                    double maximumMember, String typeOfUsing) {
+                    int maximumMember, String typeOfUsing) {
         this.id = id;
         this.serviceName = serviceName;
         this.usingArea = usingArea;
@@ -55,7 +55,7 @@ public abstract class Facility {
         return maximumMember;
     }
 
-    public void setMaximumMember(double maximumMember) {
+    public void setMaximumMember(int maximumMember) {
         this.maximumMember = maximumMember;
     }
 

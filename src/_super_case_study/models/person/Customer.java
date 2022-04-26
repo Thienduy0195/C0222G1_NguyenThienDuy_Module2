@@ -9,7 +9,7 @@ public class Customer extends Person {
                     String dateOfBirth,
                     boolean gender,
                     double identityCard,
-                    double phoneNumber,
+                    String phoneNumber,
                     String email, String typeOfCustomer, String address) {
         super(id, name, dateOfBirth, gender, identityCard, phoneNumber, email);
         this.typeOfCustomer = typeOfCustomer;

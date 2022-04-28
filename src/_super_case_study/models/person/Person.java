@@ -5,13 +5,13 @@ public abstract class Person {
     public String name;
     public String dateOfBirth;
     public boolean gender;
-    public double identityCard;
+    public String identityCard;
     public String phoneNumber;
     public String email;
 
     public Person(String id, String name,
                   String dateOfBirth, boolean gender,
-                  double identityCard, String phoneNumber,
+                  String identityCard, String phoneNumber,
                   String email) {
         this.id = id;
         this.name = name;
@@ -54,11 +54,11 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public double getIdentityCard() {
+    public String getIdentityCard() {
         return identityCard;
     }
 
-    public void setIdentityCard(double identityCard) {
+    public void setIdentityCard(String identityCard) {
         this.identityCard = identityCard;
     }
 

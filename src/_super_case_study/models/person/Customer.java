@@ -8,7 +8,7 @@ public class Customer extends Person {
                     String name,
                     String dateOfBirth,
                     boolean gender,
-                    double identityCard,
+                    String identityCard,
                     String phoneNumber,
                     String email, String typeOfCustomer, String address) {
         super(id, name, dateOfBirth, gender, identityCard, phoneNumber, email);

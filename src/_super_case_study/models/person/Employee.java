@@ -9,7 +9,7 @@ public class Employee extends Person {
                     String name,
                     String dateOfBirth,
                     boolean gender,
-                    double identityCard,
+                    String identityCard,
                     String phoneNumber,
                     String email,
                     String level,

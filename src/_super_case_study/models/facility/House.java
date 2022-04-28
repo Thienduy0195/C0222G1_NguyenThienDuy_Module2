@@ -6,12 +6,12 @@ public class House extends Facility {
 
     public House(String id,
                  String serviceName,
-                double usingArea,
-                double rentCost,
+                 double usingArea,
+                 double rentCost,
                  int maximumMember,
-                String typeOfUsing,
-                String standardOfRoom,
-                int numOfFloor) {
+                 String typeOfUsing,
+                 String standardOfRoom,
+                 int numOfFloor) {
         super(id, serviceName, usingArea, rentCost, maximumMember, typeOfUsing);
         this.standardOfRoom = standardOfRoom;
         this.numOfFloor = numOfFloor;

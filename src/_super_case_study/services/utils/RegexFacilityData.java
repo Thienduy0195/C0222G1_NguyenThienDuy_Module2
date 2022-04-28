@@ -1,23 +1,62 @@
 package _super_case_study.services.utils;
 
-public interface RegexFacilityData {
-    String REGEX_STR = "[A-Z][a-z]+";
-    String REGEX_ID_VILLA = "(SVVL)[-][\\d]{4}";
-    String REGEX_ID_HOUSE = "(SVHO)[-][\\d]{4}";
-    String REGEX_ID_ROOM = "(SVRO)[-][\\d]{4}";
-    String REGEX_AMOUNT = "^[1-9]|([1][0-9])|(20)$";
-    String REGEX_INT = "^[1-9]|([1][0-9])$";
-    String REGEX_AREA = "^([3-9]\\d|[1-9]\\d{2,})$";
+import java.util.Scanner;
 
-    String inputID(String facilityName);
+public class RegexFacilityData extends RegexData {
+    static Scanner input = new Scanner(System.in);
 
-    String inputServiceName();
 
-    String inputUsingArea();
+    public String inputFacilityID(String facilityName) {
+        String regex = "";
+        String error = "";
+        if (facilityName.equals("villa")) {
+            regex = REGEX_ID_VILLA;
+            error = "The service ID must be in the format SVVL-YYYY, example: SVVL-0001 or SVVL-0405";
+        } else if (facilityName.equals("house")) {
+            regex = REGEX_ID_HOUSE;
+            error = "The service ID must be in the format SVHO-YYYY, example: SVHO-0011 or SVHO-0056";
+        } else if (facilityName.equals("room")) {
+            regex = REGEX_ID_ROOM;
+            error = "The service ID must be in the format SVRO-YYYY, example: SVRO-0012 or SVRO-0565";
+        }
+        return regexData(input.nextLine(), regex, error);
+    }
 
-    String inputRentCost();
 
-    String inputMaximumMember();
+    public String inputServiceName(String facilityName) {
+        return regexData(input.nextLine(), REGEX_STR, "The " + facilityName + " name must be begin with uppercase character, example: Villa1, House1, Room1...");
+    }
 
-    String inputTypeOfUsing();
+    public double inputUsingArea(String facilityName) {
+        return Double.parseDouble(regexData(input.nextLine(), REGEX_AREA, "The usable area of the " + facilityName + " must be larger than 30 m2, example: 45 or 57..."));
+    }
+
+    public double inputRentCost(String facilityName) {
+        return Double.parseDouble(regexData(input.nextLine(), REGEX_POSITIVE_NUMBER, "The rental costs of the " + facilityName + " must be a positive number, example: 7, 15, 39..."));
+    }
+
+    public int inputMaximumMember(String facilityName) {
+        return Integer.parseInt(regexData(input.nextLine(), REGEX_AMOUNT, "The " + facilityName + " only accommodates 20 person at max!"));
+    }
+
+    public String inputTypeOfUsing(String facilityName) {
+        return regexData(input.nextLine(), REGEX_STR, "The rental type of the " + facilityName + " must be begin with uppercase character, example: Day, Month, Year...");
+    }
+
+    public String inputStandardOfRoom(String facilityName) {
+        return regexData(input.nextLine(), REGEX_STR, "The room-standard of the " + facilityName + " must be begin with uppercase character, example: Normal, Business, Vip, ...");
+    }
+
+    public int inputNumOfFloor(String facilityName) {
+        return Integer.parseInt(regexData(input.nextLine(), REGEX_POSITIVE_NUMBER, "The number of floor of the " + facilityName + " must be a positive number, example: 7, 15, 39..."));
+    }
+
+    public String inputFreeService(String facilityName) {
+        return regexData(input.nextLine(), REGEX_FREE_STR, "The free service of the " + facilityName + " must be a string, example: breakfast, sauna massage, ...");
+    }
+
+    public double inputPoolUsingArea(String facilityName) {
+        return Double.parseDouble(regexData(input.nextLine(), REGEX_AREA, "The pool usable area of the " + facilityName + " must be larger than 30 m2, example: 45.6 or 57.2..."));
+    }
+
 }

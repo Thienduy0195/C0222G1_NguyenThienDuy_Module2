@@ -2,6 +2,7 @@ package _super_case_study.services.impl;
 
 import _super_case_study.models.person.Employee;
 import _super_case_study.services.EmployeeService;
+import _super_case_study.services.utils.RegexPersonData;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public static Scanner input = new Scanner(System.in);
     public static ArrayList<Employee> employeesList = new ArrayList<>();
+    RegexPersonData regexPersonData = new RegexPersonData();
 
     @Override
     public void display() {
@@ -26,25 +28,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void addNew() {
         System.out.println("Enter the ID of the employee: ");
-        String id = input.nextLine();
+        String id = regexPersonData.inputPersonId();
         System.out.println("Enter the name of the employee: ");
-        String name = input.nextLine();
+        String name = regexPersonData.inputPersonName();
         System.out.println("Enter the date of birth of the employee: ");
-        String dateOfBirth = input.nextLine();
+        String dateOfBirth = regexPersonData.inputDateOfBirth();
         System.out.println("Enter the gender of the employee: 1: Male , 2 : Female ");
-        int choice = Integer.parseInt(input.nextLine());
-        boolean gender = false;
-        if (choice == 1) {
-            gender = true;
-        } else if (choice == 2) {
-            gender = false;
-        }
+        boolean gender = regexPersonData.inputGender(input.nextLine());
         System.out.println("Enter the identity card of the employee: ");
-        double identityCard = Double.parseDouble(input.nextLine());
+        String identityCard = regexPersonData.inputPersonIdCard();
         System.out.println("Enter the phone number of the employee: ");
-        String phoneNumber = input.nextLine();
+        String phoneNumber = regexPersonData.inputPhoneNumber();
         System.out.println("Enter the email of the employee: ");
-        String email = input.nextLine();
+        String email = regexPersonData.inputEmail();
         System.out.println("Enter the level of the employee: ");
         String level = input.nextLine();
         System.out.println("Enter the position of the employee: ");
@@ -64,32 +60,25 @@ public class EmployeeServiceImpl implements EmployeeService {
         for (Employee item : employeesList) {
             if (item.getName().toUpperCase().equals(name)) {
                 System.out.println("Enter the ID of the employee: ");
-                item.setId(input.nextLine());
+                item.setId(regexPersonData.inputPersonId());
                 System.out.println("Enter the name of the employee: ");
-                item.setName(input.nextLine());
+                item.setName(regexPersonData.inputPersonName());
                 System.out.println("Enter the date of birth of the employee: ");
-                item.setDateOfBirth(input.nextLine());
+                item.setDateOfBirth(regexPersonData.inputDateOfBirth());
                 System.out.println("Enter the gender of the employee: 1: Male , 2 : Female ");
-                int choice = Integer.parseInt(input.nextLine());
-                boolean gender = false;
-                if (choice == 1) {
-                    gender = true;
-                } else if (choice == 2) {
-                    gender = false;
-                }
-                item.setGender(gender);
+                item.setGender(regexPersonData.inputGender(input.nextLine()));
                 System.out.println("Enter the identity card of the employee: ");
-                item.setIdentityCard(Double.parseDouble(input.nextLine()));
+                item.setIdentityCard(regexPersonData.inputPersonIdCard());
                 System.out.println("Enter the phone number of the employee: ");
-                item.setPhoneNumber(input.nextLine());
+                item.setPhoneNumber(regexPersonData.inputPhoneNumber());
                 System.out.println("Enter the email of the employee: ");
-                item.setEmail(input.nextLine());
+                item.setEmail(regexPersonData.inputEmail());
                 System.out.println("Enter the level of the employee: ");
                 item.setLevel(input.nextLine());
                 System.out.println("Enter the position of the employee: ");
                 item.setPosition(input.nextLine());
                 System.out.println("Enter the salary of the employee: ");
-                item.setSalary(Double.parseDouble(input.nextLine()));
+                item.setSalary(Double.parseDouble(regexPersonData.inputSalary()));
                 System.out.println("EMPLOYEE AFTER EDITING:");
                 System.out.println(item.toString());
                 System.out.println("------------********------------");
@@ -139,5 +128,4 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.println("Not found the entered name of the employee in list!!");
         }
     }
-
 }

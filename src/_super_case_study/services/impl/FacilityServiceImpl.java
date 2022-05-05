@@ -5,38 +5,61 @@ import _super_case_study.models.facility.House;
 import _super_case_study.models.facility.Room;
 import _super_case_study.models.facility.Villa;
 import _super_case_study.services.FacilityService;
-import _super_case_study.services.utils.RegexFacilityData;
+import _super_case_study.utils.ReadAndWriteFacility;
+import _super_case_study.utils.RegexFacilityData;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class FacilityServiceImpl implements FacilityService {
+public class FacilityServiceImpl extends ReadAndWriteFacility implements FacilityService {
 
     private static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
-    static Scanner input = new Scanner(System.in);
     static RegexFacilityData regexFacilityData = new RegexFacilityData();
 
     @Override
     public void display() {
-        for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
-            System.out.println("SERVICES: " + item.getKey());
-            System.out.println("THE NUMBER OF TIMES RENTED: " + item.getValue());
+        facilityIntegerMap =ReadAndWriteFacility.readFacilityFromFile();
+        try {
+            if (facilityIntegerMap.isEmpty()) {
+                throw new IOException();
+            }
+        }catch (IOException e){
+            System.err.println("The data of facility is empty!!");
         }
-
+        for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
+            System.out.println("SERVICES: " + item.getKey() + ", THE NUMBER OF TIMES RENTED: " + item.getValue());
+        }
     }
 
 
     @Override
     public void displayMaintain() {
-
+        facilityIntegerMap =ReadAndWriteFacility.readFacilityFromFile();
+        try {
+            if (facilityIntegerMap.isEmpty()) {
+                throw new IOException();
+            }
+        }catch (IOException e){
+            System.err.println("The data of facility is empty!!");
+        }
+        int count =0;
+        for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
+            if(item.getValue() ==5){
+                count++;
+                System.out.println("SERVICES: " + item.getKey() + ", THE NUMBER OF TIMES RENTED: " + item.getValue());
+            }
+        }
+        if (count==0){
+            System.out.println("None of facility to maintain!!");
+        }
     }
 
 
     @Override
     public void addNewVilla() {
         System.out.println("Enter the id of the villa:");
-        String id = regexFacilityData.inputFacilityID("villa");
+        String id = checkIdFacility("villa");
         System.out.println("Enter the villa's name: ");
         String name = regexFacilityData.inputServiceName("villa");
         System.out.println("Enter the villa's usable area: ");
@@ -57,12 +80,16 @@ public class FacilityServiceImpl implements FacilityService {
                 rentCost, maximumMember, typeOfUsing,
                 standardOfRoom, poolArea, numOfFloor);
         facilityIntegerMap.put(villa, 0);
+        ReadAndWriteFacility.writeFacilityToCsv(facilityIntegerMap, VILLA_PATH);
+        ReadAndWriteFacility.writeFacilityToCsv(facilityIntegerMap, FACILITY_PATH);
+        System.out.println();
+        System.out.println("Successfully adding a new villa!!");
     }
 
     @Override
     public void addNewHouse() {
         System.out.println("Enter the id of the house:");
-        String id = regexFacilityData.inputFacilityID("house");
+        String id = checkIdFacility("house");
         System.out.println("Enter the house's name: ");
         String name = regexFacilityData.inputServiceName("house");
         System.out.println("Enter the house's usable area: ");
@@ -79,12 +106,15 @@ public class FacilityServiceImpl implements FacilityService {
         int numOfFloor = regexFacilityData.inputNumOfFloor("house");
         House house = new House(id, name, usingArea, rentCost, maximumMember, typeOfUsing, standardOfRoom, numOfFloor);
         facilityIntegerMap.put(house, 0);
+        ReadAndWriteFacility.writeFacilityToCsv(facilityIntegerMap, HOUSE_PATH);
+        ReadAndWriteFacility.writeFacilityToCsv(facilityIntegerMap, FACILITY_PATH);
+        System.out.println("Successfully adding a new house!!");
     }
 
     @Override
     public void addNewRoom() {
         System.out.println("Enter the id of the room:");
-        String id = regexFacilityData.inputFacilityID("room");
+        String id = checkIdFacility("room");
         System.out.println("Enter the room's name: ");
         String name = regexFacilityData.inputServiceName("room");
         System.out.println("Enter the room's usable area: ");
@@ -99,5 +129,27 @@ public class FacilityServiceImpl implements FacilityService {
         String freeService = regexFacilityData.inputFreeService("room");
         Room room = new Room(id, name, usingArea, rentCost, maximumMember, typeOfUsing, freeService);
         facilityIntegerMap.put(room, 0);
+        ReadAndWriteFacility.writeFacilityToCsv(facilityIntegerMap, ROOM_PATH);
+        ReadAndWriteFacility.writeFacilityToCsv(facilityIntegerMap, FACILITY_PATH);
+        System.out.println("Successfully adding a new room!!");
+    }
+
+    public String checkIdFacility(String facilityName) {
+        facilityIntegerMap =ReadAndWriteFacility.readFacilityFromFile();
+        String id = regexFacilityData.inputFacilityID(facilityName);
+        boolean check = true;
+        while (check) {
+            check = false;
+            for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
+                if (id.equals(item.getKey().getId())) {
+                    System.err.println("The Id is exist, please try again!");
+                    System.out.println("Re-enter the Id:");
+                    id = regexFacilityData.inputFacilityID(facilityName);
+                    check=true;
+                    break;
+                }
+            }
+        }
+        return id;
     }
 }

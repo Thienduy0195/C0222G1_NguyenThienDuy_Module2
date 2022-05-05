@@ -5,7 +5,7 @@ public class Employee extends Person {
     public String position;
     public double salary;
 
-    public Employee(String id,
+    public Employee(int id,
                     String name,
                     String dateOfBirth,
                     boolean gender,
@@ -43,5 +43,18 @@ public class Employee extends Person {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "EMPLOYEE INFO: " + super.toString() +
+                "LEVEL='" + level + '\'' +
+                ", POSITION='" + position + '\'' +
+                ", SALARY=" + salary;
+    }
+
+    @Override
+    public String makeText() {
+        return super.makeText() + "," + level + "," + position + "," + salary;
     }
 }

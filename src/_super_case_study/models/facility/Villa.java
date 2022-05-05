@@ -1,6 +1,8 @@
 package _super_case_study.models.facility;
 
-public class Villa extends Facility {
+import java.io.Serializable;
+
+public class Villa extends Facility implements Serializable {
     private String standardOfRoom;
     private double poolArea;
     private int numOfFloor;
@@ -47,14 +49,17 @@ public class Villa extends Facility {
     @Override
     public String toString() {
         return "VILLA: " +
-                ", ID='" + id + '\'' +
-                ", SERVICE NAME='" + serviceName + '\'' +
-                ", USING AREA=" + usingArea +
-                ", RENT COST=" + rentCost +
-                ", MAXIMUM CAPACITY =" + maximumMember +
-                ", TYPE='" + typeOfUsing + '\'' +
+                super.toString() +
                 ", STANDARD OF ROOM='" + standardOfRoom + '\'' +
                 ", POOL AREA=" + poolArea +
                 ", NUMBER OF FLOOR=" + numOfFloor;
+    }
+
+    @Override
+    public String makeText() {
+        return super.makeText() +
+                "," + standardOfRoom +
+                "," + poolArea +
+                "," + numOfFloor;
     }
 }

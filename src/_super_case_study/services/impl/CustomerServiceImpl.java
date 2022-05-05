@@ -2,15 +2,14 @@ package _super_case_study.services.impl;
 
 import _super_case_study.models.person.Customer;
 import _super_case_study.services.CustomerService;
-import _super_case_study.services.utils.RegexData;
-import _super_case_study.services.utils.RegexPersonData;
+import _super_case_study.utils.ReadAndWritePerson;
+import _super_case_study.utils.RegexPersonData;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-
-    private static final String REGEX_BIRTH_DAY = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
 
     public CustomerServiceImpl() {
     }
@@ -18,8 +17,19 @@ public class CustomerServiceImpl implements CustomerService {
     public static Scanner input = new Scanner(System.in);
     public static LinkedList<Customer> customerList = new LinkedList<>();
     RegexPersonData regexPersonData = new RegexPersonData();
+
     @Override
     public void display() {
+        try {
+            customerList = (LinkedList<Customer>) ReadAndWritePerson.readCustomerFromCsv();
+            assert customerList != null;
+            if (customerList.isEmpty()) {
+                throw new IOException();
+            }
+        } catch (IOException e) {
+            System.err.println("The data file is empty, please adding customer information to the file!!");
+        }
+
         System.out.println("*****THE LIST OF CUSTOMER****");
         for (Customer item : customerList)
             if (item != null) {
@@ -29,8 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addNew() {
+        customerList = (LinkedList<Customer>) ReadAndWritePerson.readCustomerFromCsv();
         System.out.println("Enter the ID of the customer: ");
-        String id = regexPersonData.inputPersonId();
+        int id = checkId();
         System.out.println("Enter the name of the customer: ");
         String name = regexPersonData.inputPersonName();
         System.out.println("Enter the date of birth of the customer: ");
@@ -44,24 +55,25 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Enter the email of the customer: ");
         String email = regexPersonData.inputEmail();
         System.out.println("Enter the type of the customer: ");
-        String typeOfCustomer = input.nextLine();
+        System.out.println("1. Diamond * 2. Platinum * 3. Gold * 4. Silver * 5. Member");
+        String typeOfCustomer = regexPersonData.inputCustomerType();
         System.out.println("Enter the address of the customer: ");
         String address = input.nextLine();
         customerList.add(new Customer(id, name, dateOfBirth, gender, identityCard, phoneNumber, email, typeOfCustomer, address));
+        ReadAndWritePerson.writeCustomerToCsv(customerList);
         System.out.println("Success adding!!");
-        System.out.println("*****LIST AFTER ADDING*****");
-        display();
     }
 
     @Override
     public void edit() {
+        customerList = (LinkedList<Customer>) ReadAndWritePerson.readCustomerFromCsv();
         System.out.println("Enter the name of the customer to edit:");
         String name = input.nextLine().toUpperCase();
         boolean check = true;
         for (Customer item : customerList) {
             if (item.getName().toUpperCase().equals(name)) {
                 System.out.println("Enter the ID of the customer: ");
-                item.setId(regexPersonData.inputPersonId());
+                item.setId(checkId());
                 System.out.println("Enter the name of the customer: ");
                 item.setName(regexPersonData.inputPersonName());
                 System.out.println("Enter the date of birth of the customer: ");
@@ -75,23 +87,25 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Enter the email of the customer: ");
                 item.setEmail(regexPersonData.inputEmail());
                 System.out.println("Enter the type of the customer: ");
-                item.setTypeOfCustomer(input.nextLine());
+                System.out.println("1. Diamond * 2. Platinum * 3. Gold * 4. Silver * 5. Member");
+                item.setTypeOfCustomer(regexPersonData.inputCustomerType());
                 System.out.println("Enter the address of the customer: ");
                 item.setAddress(input.nextLine());
-                System.out.println("****LIST AFTER EDITING*****");
-                display();
+                ReadAndWritePerson.writeCustomerToCsv(customerList);
+                System.out.println("****SUCCESS EDITING!*****");
                 break;
             } else {
                 check = false;
             }
         }
         if (!check) {
-            System.out.println("Not found the entered name");
+            System.out.println("Not found the entered name, please try again...");
         }
     }
 
     @Override
     public void delete() {
+        customerList = (LinkedList<Customer>) ReadAndWritePerson.readCustomerFromCsv();
         System.out.println("Enter the name of the customer to remove:");
         String name = input.nextLine().toUpperCase();
         boolean check = false;
@@ -99,9 +113,8 @@ public class CustomerServiceImpl implements CustomerService {
             if (item.getName().toUpperCase().equals(name)) {
                 customerList.remove(item);
                 check = true;
-                System.out.println("SUCCESS REMOVING!!");
-                System.out.println("*****LIST AFTER REMOVING*****");
-                display();
+                System.out.println("-----SUCCESS REMOVING-----!!");
+                ReadAndWritePerson.writeCustomerToCsv(customerList);
                 break;
             }
         }
@@ -112,6 +125,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void search() {
+        customerList = (LinkedList<Customer>) ReadAndWritePerson.readCustomerFromCsv();
         System.out.println("Enter the name of the customer you need to search:");
         String name = input.nextLine().toUpperCase();
         boolean check = false;
@@ -126,5 +140,25 @@ public class CustomerServiceImpl implements CustomerService {
         if (!check) {
             System.out.println("Not found the entered name of the customer in list!!");
         }
+    }
+
+    @Override
+    public int checkId() {
+        customerList = (LinkedList<Customer>) ReadAndWritePerson.readCustomerFromCsv();
+        int id = Integer.parseInt(regexPersonData.inputPersonId());
+        boolean check = true;
+        while (check){
+            check =false;
+            for (Customer item: customerList) {
+                if(id == item.getId()){
+                    System.err.println("The Id is exist, please try again!");
+                    System.out.println("Re-enter the Id:");
+                    id = Integer.parseInt(regexPersonData.inputPersonId());
+                    check = true;
+                    break;
+                }
+            }
+        }
+        return id;
     }
 }

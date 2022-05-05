@@ -66,4 +66,23 @@ public abstract class Facility {
     public void setTypeOfUsing(String typeOfUsing) {
         this.typeOfUsing = typeOfUsing;
     }
+
+    @Override
+    public String toString() {
+        return "ID='" + id + '\'' +
+                ", SERVICE NAME='" + serviceName + '\'' +
+                ", USING AREA=" + usingArea +
+                ", RENT COST=" + rentCost +
+                ", MAXIMUM CAPACITY =" + maximumMember +
+                ", TYPE='" + typeOfUsing;
+    }
+
+    public String makeText(){
+        return id+
+                ","+serviceName+
+                ","+usingArea+
+                ","+rentCost+
+                ","+maximumMember+
+                ","+typeOfUsing;
+    }
 }

@@ -1,9 +1,8 @@
-package _super_case_study.services.utils;
+package _super_case_study.utils;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -12,8 +11,7 @@ public class RegexData {
     public static final String REGEX_STR = "[A-Z][a-z1-9]+"; //check service name,
     public static final String REGEX_NAME = "^([A-Za-z]+)((\\s{1}[A-Za-z]+){1,})$"; // regex person name
     public static final String REGEX_FREE_STR = "[A-Z a-z]+"; // check free service of facility room
-    public static final String REGEX_ID_PERSON = "[A-Za-z0-9]+"; // check id of customer and employee
-    public static final String REGEX_GENDER = "[1]|[2]"; // check boolean for gender of person
+    public static final String REGEX_ID_PERSON = "[0-9]+"; // check id of customer and employee
     public static final String REGEX_ID_CARD = "^[0-9]{5,20}$"; // check identity card of person
     public static final String REGEX_PHONE_NUMBER = "^(84|0[3|5|7|8|9])+([0-9]{8})$"; // check phone number of person
     public static final String REGEX_EMAIL = "^[A-Za-z0-9+_.-]+@(.+)$"; // check email of person
@@ -50,7 +48,7 @@ public class RegexData {
                     LocalDate now = LocalDate.now();
                     int currentAge = Period.between(age, now).getYears();
                     if (currentAge < 100 && currentAge > 18) {
-                        check = false;
+                        return temp;
                     } else {
                         throw new AgeException("The age must be less than 100 and more than 18!!");
                     }
@@ -58,7 +56,7 @@ public class RegexData {
                     throw new AgeException("You've entered the wrong format of date of birth information! Example: 02/02/2005, 11/09/1995...");
                 }
             } catch (AgeException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
                 temp = scanner.nextLine();
             }
         }

@@ -36,15 +36,17 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return "HOUSE: " +
-                ", ID='" + id + '\'' +
-                ", SERVICE NAME='" + serviceName + '\'' +
-                ", USING AREA=" + usingArea +
-                ", RENT COST=" + rentCost +
-                ", MAXIMUM CAPACITY =" + maximumMember +
-                ", TYPE='" + typeOfUsing + '\'' +
+        return "HOUSE: " + super.toString() +
                 ", STANDARD OF ROOM='" + standardOfRoom + '\'' +
                 ", NUMBER OF FLOORS=" + numOfFloor;
+    }
+
+
+    @Override
+    public String makeText() {
+        return super.makeText() +
+                "," + standardOfRoom +
+                "," + numOfFloor;
     }
 
 }

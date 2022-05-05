@@ -25,13 +25,13 @@ public class Room extends Facility {
 
     @Override
     public String toString() {
-        return "ROOM: " +
-                ", ID='" + id + '\'' +
-                ", SERVICE NAME='" + serviceName + '\'' +
-                ", USING AREA=" + usingArea +
-                ", RENT COST=" + rentCost +
-                ", MAXIMUM CAPACITY =" + maximumMember +
-                ", TYPE='" + typeOfUsing + '\'' +
+        return "ROOM: " + super.toString() +
                 ", FREE SERVICE='" + freeService;
+    }
+
+    @Override
+    public String makeText() {
+        return super.makeText() +
+                "," + freeService;
     }
 }

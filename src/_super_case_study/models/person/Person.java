@@ -1,7 +1,7 @@
 package _super_case_study.models.person;
 
 public abstract class Person {
-    public String id;
+    public int id;
     public String name;
     public String dateOfBirth;
     public boolean gender;
@@ -9,7 +9,7 @@ public abstract class Person {
     public String phoneNumber;
     public String email;
 
-    public Person(String id, String name,
+    public Person(int id, String name,
                   String dateOfBirth, boolean gender,
                   String identityCard, String phoneNumber,
                   String email) {
@@ -22,11 +22,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String idPerson) {
+    public void setId(int idPerson) {
         this.id = idPerson;
     }
 
@@ -80,14 +80,15 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", gender=" + gender +
-                ", identityCard=" + identityCard +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                '}';
+        return "ID='" + id + '\'' +
+                ", NAME='" + name + '\'' +
+                ", DATE OF BIRTH='" + dateOfBirth + '\'' +
+                ", GENDER=" + gender +
+                ", IDENTITY CARD=" + identityCard +
+                ", PHONE NUMBER=" + phoneNumber +
+                ", EMAIL='" + email;
+    }
+    public String makeText(){
+        return id + "," + name + "," + dateOfBirth + "," + gender + "," + identityCard + "," + phoneNumber + "," + email;
     }
 }

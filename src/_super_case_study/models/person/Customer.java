@@ -4,7 +4,7 @@ public class Customer extends Person {
     private String typeOfCustomer;
     private String address;
 
-    public Customer(String id,
+    public Customer(int id,
                     String name,
                     String dateOfBirth,
                     boolean gender,
@@ -33,9 +33,13 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "typeOfCustomer='" + typeOfCustomer + '\'' +
-                ", address='" + address + '\'' +
-                "} " + super.toString();
+        return "CUSTOMER INFO: " + super.toString() +
+            " TYPE OF CUSTOMER='" + typeOfCustomer +
+                    ", ADDRESS='" + address;
+    }
+
+    @Override
+    public String makeText() {
+        return super.makeText() + "," + typeOfCustomer + "," + address;
     }
 }

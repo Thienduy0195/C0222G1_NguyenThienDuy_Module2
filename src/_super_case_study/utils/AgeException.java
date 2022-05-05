@@ -1,4 +1,4 @@
-package _super_case_study.services.utils;
+package _super_case_study.utils;
 
 public class AgeException extends Exception {
     public AgeException (String message){

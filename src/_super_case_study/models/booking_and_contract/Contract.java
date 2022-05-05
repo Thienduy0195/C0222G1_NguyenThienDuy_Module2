@@ -7,17 +7,24 @@ public class Contract {
     private double totalPayment;
     private String customerName;
     private int customerId;
+    private String contractSignDate;
+    private double discount;
 
     public Contract() {
     }
 
-    public Contract(String contractId, int bookingId, double deposit, double totalPayment, String customerName, int customerId) {
+    public Contract(String contractId, int bookingId,
+                    double deposit, double totalPayment,
+                    String customerName, int customerId,
+                    String contractSignDate, double discount) {
         this.contractId = contractId;
         this.bookingId = bookingId;
         this.deposit = deposit;
         this.totalPayment = totalPayment;
         this.customerName = customerName;
         this.customerId = customerId;
+        this.contractSignDate = contractSignDate;
+        this.discount = discount;
     }
 
     public String getContractId() {
@@ -68,6 +75,22 @@ public class Contract {
         this.customerId = customerId;
     }
 
+    public String getContractSignDate() {
+        return contractSignDate;
+    }
+
+    public void setContractSignDate(String contractSignDate) {
+        this.contractSignDate = contractSignDate;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
     @Override
     public String toString() {
         return "CONTRACT: " +
@@ -76,7 +99,9 @@ public class Contract {
                 ", DEPOSIT=" + deposit +
                 ", TOTAL OF PAYMENT=" + totalPayment +
                 ", CUSTOMER NAME=" + customerName +
-                ", CUSTOMER ID=" + customerId;
+                ", CUSTOMER ID=" + customerId +
+                ", CONTRACT SIGNED DAY=" + contractSignDate +
+                ", DISCOUNT=" + discount;
     }
 
     public String makeText() {
@@ -85,6 +110,8 @@ public class Contract {
                 "," + deposit +
                 "," + totalPayment +
                 "," + customerName +
-                "," + customerId;
+                "," + customerId +
+                "," + contractSignDate+
+                "," + discount;
     }
 }

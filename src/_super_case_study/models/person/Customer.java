@@ -15,6 +15,8 @@ public class Customer extends Person {
         this.typeOfCustomer = typeOfCustomer;
         this.address = address;
     }
+
+
     public String getTypeOfCustomer() {
         return typeOfCustomer;
     }

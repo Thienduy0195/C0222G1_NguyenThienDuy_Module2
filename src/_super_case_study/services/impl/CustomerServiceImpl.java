@@ -59,7 +59,8 @@ public class CustomerServiceImpl implements CustomerService {
         String typeOfCustomer = regexPersonData.inputCustomerType();
         System.out.println("Enter the address of the customer: ");
         String address = input.nextLine();
-        customerList.add(new Customer(id, name, dateOfBirth, gender, identityCard, phoneNumber, email, typeOfCustomer, address));
+        customerList.add(new Customer(id, name, dateOfBirth, gender,
+                identityCard, phoneNumber, email, typeOfCustomer, address));
         ReadAndWritePerson.writeCustomerToCsv(customerList);
         System.out.println("Success adding!!");
     }

@@ -60,7 +60,10 @@ public class BookingServiceImpl implements BookingService {
         String startDate = regexBookingAndContract.regexStartEndDate(input.nextLine());
         System.out.println("Enter the day to check out:");
         String endDate = regexBookingAndContract.checkStartEndDate(startDate);
-        Booking booking = new Booking(id, customer.getId(), customer.getName(), customer.getTypeOfCustomer(), facility.getId(), facility.getServiceName(), facility.getTypeOfUsing(), startDate, endDate, false);
+        Booking booking = new Booking(id, customer.getId(), customer.getName(),
+                                        customer.getTypeOfCustomer(), facility.getId(),
+                                        facility.getServiceName(), facility.getTypeOfUsing(),
+                                        startDate, endDate, false);
         bookingSet.add(booking);
         ReadAndWriteBookingAndContract.writeBookingToCsv(bookingSet);
         recordBookingFacility(facility.getId());

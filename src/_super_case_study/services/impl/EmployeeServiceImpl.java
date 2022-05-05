@@ -61,11 +61,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("1. Intermediate \n2. Colleges \n3. High Colleges \n4. Postgraduate");
         String level = regexPersonData.inputEmployeeLevel();
         System.out.println("Enter the position of the employee: ");
-        System.out.println("1. Receptionist ** 2. Waitress ** 3. Hotel ** 4. specialist ** 5. Monitoring ** 6. Management ** 7. Director");
+        System.out.println("1. Receptionist ** 2. Waitress ** 3. Hotel ** 4. specialist ** " +
+                "5. Monitoring ** 6. Management ** 7. Director");
         String position = regexPersonData.inputEmployeePosition();
         System.out.println("Enter the salary of the employee: ");
         double salary = Double.parseDouble(regexPersonData.inputSalary());
-        employeesList.add(new Employee(id, name, dateOfBirth, gender, identityCard, phoneNumber, email, level, position, salary));
+        employeesList.add(new Employee(id, name, dateOfBirth, gender,
+                                        identityCard, phoneNumber, email,
+                                        level, position, salary));
         ReadAndWritePerson.writeEmployeeToCsv(employeesList);
         System.out.println("Success adding!!");
         System.out.println("------------********------------");
@@ -94,7 +97,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.println("Enter the email of the employee: ");
                 item.setEmail(regexPersonData.inputEmail());
                 System.out.println("Enter the level of the employee: ");
-                System.out.println("1. Receptionist ** 2. Waitress ** 3. Hotel ** 4. specialist ** 5. Monitoring ** 6. Management ** 7. Director");
+                System.out.println("1. Receptionist ** 2. Waitress ** 3. Hotel ** 4. specialist ** " +
+                        "5. Monitoring ** 6. Management ** 7. Director");
                 item.setLevel(input.nextLine());
                 System.out.println("Enter the position of the employee: ");
                 item.setPosition(input.nextLine());
@@ -159,10 +163,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeesList = (ArrayList<Employee>) ReadAndWritePerson.readEmployeeFromCsv();
         int id = Integer.parseInt(regexPersonData.inputPersonId());
         boolean check = true;
-        while (check){
-            check =false;
-            for (Employee item: employeesList) {
-                if(id == item.getId()){
+        while (check) {
+            check = false;
+            for (Employee item : employeesList) {
+                if (id == item.getId()) {
                     System.err.println("The Id is exist, please try again!");
                     System.out.println("Re-enter the Id:");
                     id = Integer.parseInt(regexPersonData.inputPersonId());

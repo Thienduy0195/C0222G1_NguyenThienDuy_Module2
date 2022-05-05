@@ -15,8 +15,10 @@ public class ReadAndWriteBookingAndContract {
     }
     public static final String BOOKING_PATH = "src/_super_case_study/data/booking.csv";
     public static final String CONTRACT_PATH = "src/_super_case_study/data/contract.csv";
-    public static final String BOOKING_HEADER = "BOOKING ID,CUSTOMER ID,CUSTOMER NAME,CUSTOMER TYPE,FACILITY ID, FACILITY NAME,SERVICE TYPE,START DAY,END DAY, CONTRACT CREATED";
-    public static final String CONTRACT_HEADER = "CONTRACT ID,BOOKING ID,DEPOSIT,TOTAL PAYMENT,CUSTOMER NAME, CUSTOMER ID";
+    public static final String BOOKING_HEADER = "BOOKING ID,CUSTOMER ID,CUSTOMER NAME,CUSTOMER TYPE,FACILITY ID, " +
+            "FACILITY NAME,SERVICE TYPE,START DAY,END DAY, CONTRACT CREATED";
+    public static final String CONTRACT_HEADER = "CONTRACT ID,BOOKING ID,DEPOSIT,TOTAL PAYMENT,CUSTOMER NAME, " +
+            "CUSTOMER ID, CONTRACT SIGNED DAY, DISCOUNT (%)";
 
     public static void writeBookingToCsv(Set<Booking> set) {
         try {
@@ -46,7 +48,8 @@ public class ReadAndWriteBookingAndContract {
                 if (arr[0].contains("BOOKING")){
                     continue;
                 }
-                booking = new Booking(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], Boolean.parseBoolean(arr[9]));
+                booking = new Booking(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]), arr[2],
+                        arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], Boolean.parseBoolean(arr[9]));
                 bookingSet.add(booking);
             }
             bufferedReader.close();
@@ -84,7 +87,7 @@ public class ReadAndWriteBookingAndContract {
                     continue;
                 }
                 contract = new Contract(arr[0], Integer.parseInt(arr[1]), Double.parseDouble(arr[2]),
-                        Double.parseDouble(arr[3]), arr[4], Integer.parseInt(arr[5]));
+                        Double.parseDouble(arr[3]), arr[4], Integer.parseInt(arr[5]), arr[6], Double.parseDouble(arr[7]));
                 contractList.add(contract);
             }
             bufferedReader.close();

@@ -1,34 +1,44 @@
 package _super_ss_testall.test_constructor;
 
-class Copy{
-    int id;
-    String name;
+class Copy {
+        public static void main(String[] args) {
+            System.out.println((int)' ');
+        }
+//    public static void main(String[] args) {
+//        int i = 010;
+//        System.out.println(i);
+//    }
 
-    // Constructor with 2 parameters
-    Copy(int i, String n){
-        id = i;
-        name = n;
+//    public static void main(String[] args) {
+//        byte a = 3;
+//        byte b = 4;
+//        byte c = (byte)(b - a);
+//        System.out.println(c);
+//    }
+
+
+
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+
+    public Copy() {
+        this("abc", "b", "c", "d", "e");
     }
 
-    // Constructor
-    Copy(Copy s){
-        id = s.id;
-        name = s.name;
+    public Copy(String a, String b, String c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
-    // Method
-    void display(){
-        System.out.println(id + " " + name);
-    }
-
-    public static void main(String[] args){
-
-        // object declare
-        Copy s1 = new Copy(121, "NIT");
-        Copy s2 = new Copy(s1);
-
-        // calling method
-        s1.display();
-        s2.display();
+    public Copy(String a, String b, String c, String d, String e) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.e = e;
     }
 }

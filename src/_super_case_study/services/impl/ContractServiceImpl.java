@@ -7,6 +7,8 @@ import _super_case_study.utils.read_and_write.ReadAndWriteBookingAndContract;
 import _super_case_study.utils.regex.RegexPersonData;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ContractServiceImpl implements ContractService {
@@ -29,7 +31,7 @@ public class ContractServiceImpl implements ContractService {
         ) {
             System.out.println(contract.toString());
         }
-        if (contractList.size()<bookingSet.size()){
+        if (contractList.size() < bookingSet.size()) {
             System.err.println("\nSome booking seem not to be created into contract, please check if it's needed!");
         }
     }
@@ -40,7 +42,7 @@ public class ContractServiceImpl implements ContractService {
         Queue<Booking> bookingQueue = new LinkedList<>();
         for (Booking booking :
                 bookingSet) {
-            if (!booking.isCreateContract()){
+            if (!booking.isCreateContract()) {
                 bookingQueue.add(booking);
             }
         }
@@ -56,7 +58,9 @@ public class ContractServiceImpl implements ContractService {
             double deposit = Double.parseDouble(regexPersonData.inputSalary());
             System.out.println("Please enter the total amount to pay:");
             double totalPayment = checkMoney(deposit);
-            Contract contract = new Contract(contractID, bookingID, deposit, totalPayment, customerName, customerId);
+            Contract contract = new Contract(contractID, bookingID,
+                    deposit, totalPayment, customerName,
+                    customerId, contractSignedDate(), 0);
             contractList.add(contract);
             recordContractSignedBooking(bookingID);
             ReadAndWriteBookingAndContract.writeContractToCsv(contractList);
@@ -88,7 +92,7 @@ public class ContractServiceImpl implements ContractService {
                     System.out.println("Editing new contract completed!!");
                 }
             }
-            if (check){
+            if (check) {
                 System.out.println("Not found the contract which you are searching, please try again:");
                 id = input.nextLine();
             }
@@ -111,14 +115,14 @@ public class ContractServiceImpl implements ContractService {
         return 0;
     }
 
-    public String checkContractId(){
+    public String checkContractId() {
         contractList = ReadAndWriteBookingAndContract.readContractFromCsv();
         String id = input.nextLine();
         boolean check = true;
-        while (check){
-            check =false;
-            for (Contract item: contractList) {
-                if(id.equals(item.getContractId())){
+        while (check) {
+            check = false;
+            for (Contract item : contractList) {
+                if (id.equals(item.getContractId())) {
                     System.err.println("The Id is exist, please try again!");
                     System.out.println("Re-enter the Id:");
                     id = input.nextLine();
@@ -150,5 +154,11 @@ public class ContractServiceImpl implements ContractService {
                 item.setCreateContract(true);
             }
         }
+    }
+
+    public static String contractSignedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate now = LocalDate.now();
+        return now.format(formatter);
     }
 }

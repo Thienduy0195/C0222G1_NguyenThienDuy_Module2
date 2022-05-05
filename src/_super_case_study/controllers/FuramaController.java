@@ -201,15 +201,18 @@ public class FuramaController {
     }
 
     public static void promotionManagement() {
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
         boolean check = true;
         while (check) {
-            System.out.println("\n1. Display list customers use service" +
+            System.out.println("\n1. Display list customers use service by year" +
                     "\n2. Display list customers get voucher" +
                     "\n3. Return main menu\n");
             switch (input.nextLine()) {
                 case "1":
+                    promotionService.displayCustomerByYear();
                     break;
                 case "2":
+                    promotionService.displayCustomerGetVoucher();
                     break;
                 case "3":
                     check = false;

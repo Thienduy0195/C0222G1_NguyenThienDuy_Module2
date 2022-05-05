@@ -2,8 +2,8 @@ package _super_case_study.services.impl;
 
 import _super_case_study.models.person.Customer;
 import _super_case_study.services.CustomerService;
-import _super_case_study.utils.ReadAndWritePerson;
-import _super_case_study.utils.RegexPersonData;
+import _super_case_study.utils.read_and_write.ReadAndWritePerson;
+import _super_case_study.utils.regex.RegexPersonData;
 
 import java.io.IOException;
 import java.util.LinkedList;

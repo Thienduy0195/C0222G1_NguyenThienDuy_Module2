@@ -1,4 +1,4 @@
-package _super_case_study.utils;
+package _super_case_study.utils.read_and_write;
 
 import _super_case_study.models.person.Customer;
 import _super_case_study.models.person.Employee;

@@ -1,4 +1,4 @@
-package _super_case_study.models;
+package _super_case_study.models.booking_and_contract;
 
 public class Booking {
 

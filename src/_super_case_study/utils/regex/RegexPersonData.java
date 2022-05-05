@@ -1,4 +1,4 @@
-package _super_case_study.utils;
+package _super_case_study.utils.regex;
 
 
 public class RegexPersonData extends RegexData {

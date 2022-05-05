@@ -1,10 +1,10 @@
 package _super_case_study.services.impl;
 
-import _super_case_study.models.Booking;
-import _super_case_study.models.Contract;
+import _super_case_study.models.booking_and_contract.Booking;
+import _super_case_study.models.booking_and_contract.Contract;
 import _super_case_study.services.ContractService;
-import _super_case_study.utils.ReadAndWriteBookingAndContract;
-import _super_case_study.utils.RegexPersonData;
+import _super_case_study.utils.read_and_write.ReadAndWriteBookingAndContract;
+import _super_case_study.utils.regex.RegexPersonData;
 
 import java.io.IOException;
 import java.util.*;

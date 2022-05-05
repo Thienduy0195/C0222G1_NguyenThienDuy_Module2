@@ -1,6 +1,6 @@
 package _super_case_study.utils;
 
-import _super_case_study.models.Booking;
+import _super_case_study.models.booking_and_contract.Booking;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -7,10 +7,6 @@ import java.util.Scanner;
 public class FuramaController {
     public static Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        displayMainMenu();
-    }
-
     public static void displayMainMenu() {
 
         while (true) {
@@ -126,7 +122,7 @@ public class FuramaController {
                     facilityService.displayMaintain();
                     break;
                 case "4":
-                    check = false;
+                    displayMainMenu();
                     break;
                 default:
                     System.err.println("You have enter a wrong choice, please try again!");
@@ -158,7 +154,7 @@ public class FuramaController {
                     facilityManagement();
                     break;
                 case "4":
-                    check =false;
+                    check = false;
                     break;
                 default:
                     System.err.println("You have enter a wrong choice, please try again!");

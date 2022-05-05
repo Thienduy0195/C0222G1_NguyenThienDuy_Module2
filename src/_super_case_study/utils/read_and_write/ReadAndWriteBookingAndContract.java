@@ -1,7 +1,8 @@
-package _super_case_study.utils;
+package _super_case_study.utils.read_and_write;
 
-import _super_case_study.models.Booking;
-import _super_case_study.models.Contract;
+import _super_case_study.models.booking_and_contract.Booking;
+import _super_case_study.models.booking_and_contract.Contract;
+import _super_case_study.utils.BookingComparator;
 
 import java.io.*;
 import java.util.LinkedList;

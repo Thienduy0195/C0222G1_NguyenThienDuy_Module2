@@ -5,8 +5,8 @@ import _super_case_study.models.facility.House;
 import _super_case_study.models.facility.Room;
 import _super_case_study.models.facility.Villa;
 import _super_case_study.services.FacilityService;
-import _super_case_study.utils.ReadAndWriteFacility;
-import _super_case_study.utils.RegexFacilityData;
+import _super_case_study.utils.read_and_write.ReadAndWriteFacility;
+import _super_case_study.utils.regex.RegexFacilityData;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;

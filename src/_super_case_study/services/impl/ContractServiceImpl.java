@@ -19,6 +19,7 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public void display() {
+
         contractList = ReadAndWriteBookingAndContract.readContractFromCsv();
         try {
             if (contractList.isEmpty()) {

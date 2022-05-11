@@ -1,0 +1,6 @@
+ID,NAME,DATE OF BIRTH,GENDER,IDENTITY CARD,PHONE NUMBER,EMAIL,TYPE OF CUSTOMER,ADDRESS
+1,nguyen thien duy,01/01/1995,true,256465,0917578779,thienduy@gmail.com,Platinum,nguyen cong trang
+3,nguyen thi b,01/02/1998,false,454646,0905255555,thib@gmail,Gold,ngjhfsdf
+4,nguyen van a,01/01/1996,true,4234324234,0905858585,nguyenvan@gmail.com,Silver,nguyen van linh
+2,nguyen van a,05/02/1999,true,45646464,0905656565,thienduy@gmail.com,Silver,dsafsf sdfsdf
+5,nguyen van loc,05/05/1994,true,464164631313,0902020202,nguyenvanloc@gmail.com,Platinum,nguyen van linh
